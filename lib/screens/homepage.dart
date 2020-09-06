@@ -1,7 +1,7 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:e_commerce/screens/components/horizontal_list_view.dart';
 import 'package:e_commerce/screens/components/products.dart';
-// import 'package:e_commerce/screens/pages/cart.dart';
+import 'package:e_commerce/screens/pages/cart.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -43,10 +43,10 @@ class _HomePageState extends State<HomePage> {
           IconButton(
               icon: Icon(Icons.shopping_cart),
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => Cart()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Cart()),
+                );
               }),
         ],
       ),
@@ -95,12 +95,12 @@ class _HomePageState extends State<HomePage> {
             ),
             InkWell(
               onTap: () {
-                // Navigator.push(
-                //   context,
-                //   // MaterialPageRoute(
-                //   //   builder: (context) => Cart(),
-                //   // ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Cart(),
+                  ),
+                );
               },
               child: ListTile(
                 title: Text("Shopping Cart"),
