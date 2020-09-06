@@ -1,30 +1,18 @@
 import 'package:e_commerce/screens/pages/product_details.dart';
 import 'package:flutter/material.dart';
 
-class Products extends StatefulWidget {
+class SimilarProducts extends StatefulWidget {
   @override
-  _ProductsState createState() => _ProductsState();
+  _SimilarProductsState createState() => _SimilarProductsState();
 }
 
-class _ProductsState extends State<Products> {
-  var productList = [
-    {
-      "name": "Dress",
-      "picture": "assets/images/products/f.jpg",
-      "oldPrice": 1500,
-      "price": 1200,
-    },
+class _SimilarProductsState extends State<SimilarProducts> {
+  var similarproductList = [
     {
       "name": "Bag",
       "picture": "assets/images/products/bag.jpg",
       "oldPrice": 1000,
       "price": 900,
-    },
-    {
-      "name": "Heel",
-      "picture": "assets/images/products/heel.jpg",
-      "oldPrice": 5000,
-      "price": 4500,
     },
     {
       "name": "Cool-Shirt",
@@ -37,12 +25,6 @@ class _ProductsState extends State<Products> {
       "picture": "assets/images/products/vans.jpg",
       "oldPrice": 2000,
       "price": 1600,
-    },
-    {
-      "name": "Cool-Sweater",
-      "picture": "assets/images/products/fashionsweater.jpg",
-      "oldPrice": 3000,
-      "price": 2500,
     },
     {
       "name": "Nike-Shoe",
@@ -60,29 +42,29 @@ class _ProductsState extends State<Products> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      itemCount: productList.length,
+      itemCount: similarproductList.length,
       gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
       ),
       itemBuilder: (BuildContext context, int index) {
-        return SingleProduct(
-          productName: productList[index]['name'],
-          productPicture: productList[index]['picture'],
-          productOldPrice: productList[index]['oldPrice'],
-          productPrice: productList[index]['price'],
+        return SimilarSingleProduct(
+          productName: similarproductList[index]['name'],
+          productPicture: similarproductList[index]['picture'],
+          productOldPrice: similarproductList[index]['oldPrice'],
+          productPrice: similarproductList[index]['price'],
         );
       },
     );
   }
 }
 
-class SingleProduct extends StatelessWidget {
+class SimilarSingleProduct extends StatelessWidget {
   final productName;
   final productPicture;
   final productOldPrice;
   final productPrice;
 
-  SingleProduct({
+  SimilarSingleProduct({
     this.productName,
     this.productPicture,
     this.productOldPrice,

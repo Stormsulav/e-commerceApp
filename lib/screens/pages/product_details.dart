@@ -1,3 +1,5 @@
+import 'package:e_commerce/screens/components/similarproducts.dart';
+import 'package:e_commerce/screens/homepage.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -23,11 +25,20 @@ class _ProductDetailsState extends State<ProductDetails> {
         elevation: 0,
         backgroundColor: Colors.deepOrangeAccent,
         title: Center(
-          child: Text("Shopping App"),
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomePage(),
+                ),
+              );
+            },
+            child: Text("Shopping App"),
+          ),
         ),
         actions: [
           IconButton(icon: Icon(Icons.search), onPressed: () {}),
-          IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {}),
         ],
       ),
       body: ListView(
@@ -84,7 +95,24 @@ class _ProductDetailsState extends State<ProductDetails> {
 
               Expanded(
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("Size"),
+                            content: Text("Choose the size"),
+                            actions: [
+                              MaterialButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop(context);
+                                },
+                                child: Text("Close"),
+                              ),
+                            ],
+                          );
+                        });
+                  },
                   color: Colors.white38,
                   textColor: Colors.blueGrey[700],
                   elevation: 1.0,
@@ -105,7 +133,24 @@ class _ProductDetailsState extends State<ProductDetails> {
 
               Expanded(
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("Color"),
+                            content: Text("Choose the color"),
+                            actions: [
+                              MaterialButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop(context);
+                                },
+                                child: Text("Close"),
+                              ),
+                            ],
+                          );
+                        });
+                  },
                   color: Colors.white38,
                   textColor: Colors.blueGrey[700],
                   elevation: 1.0,
@@ -127,7 +172,24 @@ class _ProductDetailsState extends State<ProductDetails> {
               Expanded(
                 flex: 1,
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("Quantity"),
+                            content: Text("Choose the quantity"),
+                            actions: [
+                              MaterialButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop(context);
+                                },
+                                child: Text("Close"),
+                              ),
+                            ],
+                          );
+                        });
+                  },
                   color: Colors.white38,
                   textColor: Colors.blueGrey[700],
                   elevation: 1.0,
@@ -170,6 +232,63 @@ class _ProductDetailsState extends State<ProductDetails> {
                 onPressed: () {},
               ),
             ],
+          ),
+          Divider(
+            color: Colors.black87,
+          ),
+          ListTile(
+            title: Text("Product details"),
+            subtitle: Text(
+                "Asxa,mcl,ancmn vasdlvnc adsclmadcmadslkcmadcklnadcknas dvcjdbvcsjfvbaeibgvknvflak;dnvvlknd"),
+          ),
+          Divider(
+            color: Colors.black87,
+          ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text("Product name"),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(widget.productDetailName),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text("Product brand"),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text("Brand X"),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text("Product condition"),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text("New"),
+              ),
+            ],
+          ),
+          Divider(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Similar Products"),
+          ),
+          // Similar products begins here
+          Container(
+            height: 340.0,
+            child: SimilarProducts(),
           ),
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:e_commerce/screens/components/horizontal_list_view.dart';
 import 'package:e_commerce/screens/components/products.dart';
+// import 'package:e_commerce/screens/pages/cart.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,6 +28,7 @@ class _HomePageState extends State<HomePage> {
         dotSize: 5.0,
         dotColor: Colors.black,
         indicatorBgPadding: 3.0,
+        dotBgColor: Colors.transparent,
       ),
     );
     return Scaffold(
@@ -38,7 +40,14 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           IconButton(icon: Icon(Icons.search), onPressed: () {}),
-          IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {}),
+          IconButton(
+              icon: Icon(Icons.shopping_cart),
+              onPressed: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => Cart()),
+                // );
+              }),
         ],
       ),
       drawer: Drawer(
@@ -85,10 +94,17 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                // Navigator.push(
+                //   context,
+                //   // MaterialPageRoute(
+                //   //   builder: (context) => Cart(),
+                //   // ),
+                // );
+              },
               child: ListTile(
-                title: Text("Categories"),
-                leading: Icon(Icons.category),
+                title: Text("Shopping Cart"),
+                leading: Icon(Icons.shopping_cart),
               ),
             ),
             InkWell(
